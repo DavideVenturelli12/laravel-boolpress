@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Post;
+use App\Category;
 
-class PostController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class PostController extends Controller
     public function index()
     {
         //
-        $post = Post::all();
-        $results = ['results'=>$post, 'succes'=>true];
+        $categories = Category::all();
+        $result = ['result'=>$categories, 'succes'=>true];
 
-        return response()->json($results);
+        return response()->json($result);
     }
 
     /**
@@ -53,6 +53,10 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        $category = Category::find($id);
+        $results = ['results'=>$category, 'succes'=>true];
+
+        return response()->json($results);
     }
 
     /**
