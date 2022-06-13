@@ -2069,7 +2069,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.currentPage = results.data.results.current_page;
           _this.previousPageLink = results.data.results.prev_page_url;
           _this.nextPageLink = results.data.results.next_page_url;
-        } // console.log(this.posts);
+        } //console.log(this.posts);
 
       })["catch"](function (e) {
         console.log(e);
@@ -2204,12 +2204,12 @@ __webpack_require__.r(__webpack_exports__);
     var slug = this.$route.params.slug; // console.log(slug);
 
     window.axios.get("http://127.0.0.1:8000/api/posts/" + slug).then(function (results) {
-      // console.log(results);
+      console.log(results);
+
       if (results.status === 200 && results.data.success) {
         _this.post = results.data.results;
-      }
+      } //console.log(this.post);
 
-      console.log(_this.post);
     })["catch"](function (e) {
       console.log(e);
     });
@@ -37926,9 +37926,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12 text-center" }, [
-        _vm._v("Sezione My Post"),
-      ]),
+      _c("div", { staticClass: "col-12 text-center" }, [_vm._v("I miei Post")]),
       _vm._v(" "),
       _vm.posts.length > 0
         ? _c(
@@ -37940,7 +37938,7 @@ var render = function () {
                 ? _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-success",
                       on: {
                         click: function ($event) {
                           return _vm.goPreviousPage()
@@ -37955,7 +37953,7 @@ var render = function () {
                 ? _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-success",
                       on: {
                         click: function ($event) {
                           return _vm.goNextPage()
@@ -37968,7 +37966,9 @@ var render = function () {
             ],
             1
           )
-        : _c("div", [_vm._v("Caricamento in corso")]),
+        : _c("div", { staticClass: "col-12 text-center" }, [
+            _vm._v("Caricamento in corso..."),
+          ]),
     ]),
   ])
 }
@@ -53800,8 +53800,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.get('http://127.0.0.1:8000/api/posts').then(function (results) {
-  console.log(results);
+window.axios.get('http://127.0.0.1:8000/api/posts').then(function (results) {//console.log(results);
 })["catch"](function (e) {
   console.log(e);
 });

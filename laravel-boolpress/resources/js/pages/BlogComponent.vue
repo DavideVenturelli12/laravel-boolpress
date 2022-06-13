@@ -1,25 +1,25 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">Sezione My Post</div>
+      <div class="col-12 text-center">I miei Post</div>
       <div v-if="posts.length > 0">
         <PostCardComponent :posts="posts" />
         <button
-          class="btn btn-primary"
+          class="btn btn-success"
           v-if="previousPageLink"
           @click="goPreviousPage()"
         >
           Prev
         </button>
         <button
-          class="btn btn-primary"
+          class="btn btn-success"
           v-if="nextPageLink"
           @click="goNextPage()"
         >
           Next
         </button>
       </div>
-      <div v-else>Caricamento in corso</div>
+      <div v-else class="col-12 text-center">Caricamento in corso...</div>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
             this.previousPageLink = results.data.results.prev_page_url;
             this.nextPageLink = results.data.results.next_page_url;
           }
-          // console.log(this.posts);
+          //console.log(this.posts);
         })
         .catch((e) => {
           console.log(e);

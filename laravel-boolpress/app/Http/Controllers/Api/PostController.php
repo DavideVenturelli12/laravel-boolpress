@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         //
         $posts = Post::paginate(2);
-        $results = ['results'=>$posts, 'succes'=>true];
+        $results = ['results'=>$posts, 'success'=>true];
 
         return response()->json($results);
     }
@@ -53,6 +53,9 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        $post = Post::where('slug', $slug)->with(['category','tags'])->first();
+        $result = ['results'=>$post, 'success'=>true];
+        return response()->json($result);
     }
 
     /**
