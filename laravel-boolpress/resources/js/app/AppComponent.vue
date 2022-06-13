@@ -1,12 +1,19 @@
 <template>
-  <div>WORK IN PROGESS</div>
+  <div>
+    <HeaderComponent />
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
+import HeaderComponent from "../components/HeaderComponent.vue";
 export default {
   name: "AppComponent",
+  components: {
+    HeaderComponent,
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>>
+<style>
+</style>

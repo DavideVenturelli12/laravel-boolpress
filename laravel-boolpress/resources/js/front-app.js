@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.axios.get('http://127.0.0.1:8000/api/posts').then(results => {
     console.log(results);
@@ -35,14 +36,14 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+console.log('JS OK!');
+
 import AppComponent from './app/AppComponent'
-//import router from './routes'
+import router from './routes'
 
 const app = new Vue({
     el: '#app',
     render: (h) => h(AppComponent),
-
+    router
 });
-
-console.log('vue ok');
 
